@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:glass",
+    "minecraft:glowstone_dust",
+    "minecraft:iron_ingot"
+  ],
+  "result": {
+    "id": "aviation:airfield_light",
+    "count": 4
+  }
+}

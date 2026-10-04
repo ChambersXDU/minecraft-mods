@@ -1,0 +1,65 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+loom {
+    splitEnvironmentSourceSets()
+    mods {
+        aviation {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') {
+        expand version: project.version
+    }
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+    withSourcesJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 25
+}
+
+jar {
+    from('LICENSE') {
+        rename { "LICENSE_${project.name}" }
+    }
+}
+
+test { failOnNoDiscoveredTests = false }
+
+fabricApi {
+    configureTests {
+        createSourceSet = true
+        modId = 'aviation-test'
+        enableGameTests = true
+        enableClientGameTests = providers.gradleProperty('clientTests').map { it.toBoolean() }.orElse(false).get()
+        eula = true
+        clearRunDirectory = true
+    }
+}
+
+if (providers.gradleProperty('clientTests').map { it.toBoolean() }.orElse(false).get()) {
+    sourceSets.gametest.java.srcDir('src/clientgametest/java')
+}
+
+// Each integration run must construct a fresh airport, rather than inherit saved test entities.
+def aviationTestWorld = layout.buildDirectory.dir('run/gameTest/world')
+tasks.named('runGameTest') {
+    doFirst { aviationTestWorld.get().asFile.deleteDir() }
+}

@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "dev.aviation.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "AircraftDismountMixin",
+    "AircraftRidingMixin",
+    "AirportSpawningMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

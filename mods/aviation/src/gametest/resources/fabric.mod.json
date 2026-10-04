@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "aviation-test",
+  "version": "1.0.0",
+  "name": "Aviation integration tests",
+  "environment": "*",
+  "mixins": ["aviation-test.mixins.json"],
+  "entrypoints": {
+    "fabric-client-gametest": ["dev.aviation.test.client.AviationClientTests"],
+    "fabric-gametest": [
+      "dev.aviation.test.AviationGameTests",
+      "dev.aviation.AirlinerGameTests"
+    ]
+  },
+  "depends": {
+    "aviation": "*",
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "fabric-api": "*"
+  }
+}

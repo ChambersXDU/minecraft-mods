@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "aviation:runway_asphalt",
+    "minecraft:yellow_dye"
+  ],
+  "result": {
+    "id": "aviation:taxiway_yellow",
+    "count": 1
+  }
+}

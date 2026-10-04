@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "aviation",
+  "version": "${version}",
+  "name": "机场与飞机 / Airport Aviation",
+  "description": "普通飞机、战斗机和廊桥登机客机，自动驾驶舱、机炮、自定义跑道和大型平坦机场。",
+  "authors": [
+    "Airport Aviation"
+  ],
+  "license": "MIT",
+  "icon": "assets/aviation/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.aviation.AviationMod"
+    ],
+    "client": [
+      "dev.aviation.client.AviationClient"
+    ]
+  },
+  "mixins": [
+    "aviation.mixins.json",
+    {"config": "aviation.client.mixins.json", "environment": "client"}
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": ">=0.161.0"
+  }
+}

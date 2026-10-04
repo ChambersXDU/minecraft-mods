@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "package": "dev.aviation.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": ["CockpitCameraMixin", "CockpitBobbingMixin"],
+  "injectors": {"defaultRequire": 1}
+}

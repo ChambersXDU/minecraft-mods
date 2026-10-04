@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:gravel",
+    "minecraft:white_dye"
+  ],
+  "result": {
+    "id": "aviation:apron_concrete",
+    "count": 16
+  }
+}

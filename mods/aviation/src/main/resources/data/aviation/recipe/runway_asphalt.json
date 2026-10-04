@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:gravel",
+    "minecraft:coal"
+  ],
+  "result": {
+    "id": "aviation:runway_asphalt",
+    "count": 16
+  }
+}
